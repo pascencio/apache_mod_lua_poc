@@ -8,8 +8,9 @@ This POC trying to proof that the apache's HTTP Lua module can be used in a Reve
 
 ## Requirements
 
-- Docker versión 19 (Required)
-- docker-compose versión 1.22 (Required)
+- Docker version 19 (Required)
+- docker-compose version 1.22 (Required)
+- Postman version 7 (Required)
 - Linux (Optional)
 
 ## Running the POC
