@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  api:
+    image: node
+    volumes:
+      - ./api:/home/node/api
+    ports:
+      - 3000:3000
+    working_dir: /home/node/api
+    user: node
+    entrypoint: ["/home/node/api/entrypoint.sh"]
+  httpd:
+    build:
+      context: ./apache2
+    ports:
+      - 8080:80
+    volumes:
+      - ./apache2/chilquinta.conf:/usr/local/apache2/conf/extra/chilquinta.conf
+      - ./lua:/usr/local/apache2/lua
+      - ./json:/usr/local/apache2/json
