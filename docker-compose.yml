@@ -16,6 +16,5 @@ services:
     ports:
       - 8080:80
     volumes:
-      - ./apache2/chilquinta.conf:/usr/local/apache2/conf/extra/chilquinta.conf
+      - ./apache2/auth.conf:/usr/local/apache2/conf/extra/auth.conf
       - ./lua:/usr/local/apache2/lua
-      - ./json:/usr/local/apache2/json

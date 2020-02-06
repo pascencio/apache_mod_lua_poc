@@ -2,9 +2,11 @@ const fastify = require('fastify')({ logger: true });
 
 fastify.get('/customer/:id', async (request, reply) => {
     let services = [{
-        "name": "Medidor modelo X123RE",
+        "name": "Air conditioning",
     }, {
-        "name": "Medidor inteligente modelo ERTPX0",
+        "name": "Solar panel",
+    }, {
+        "name": "SMS consumption alerts",
     }];
     return {
         "customer_id": request.params.id,
@@ -17,15 +19,15 @@ fastify.get('/error/:code', async (request, reply) => {
 
     switch (request.params.code) {
         case "403":
-            message = "No tiene acceso al recurso solicitado";
+            message = "You don't have access to requested resource";
             reply.code(403);
             break;
         case "404":
-            message = "El recurso solicitado no existe";
+            message = "Requested resource not exists";
             reply.code(404);
             break
         default:
-            message = "Error interno, intentelo más tarde";
+            message = "Internal error, try again later";
             reply.code(500);
             break
     }
@@ -48,7 +50,7 @@ fastify.post('/auth', async (request, reply) => {
 const start = async () => {
     try {
         await fastify.listen(3000, '0.0.0.0')
-        fastify.log.info(`server listening on ${fastify.server.address().port}`)
+        fastify.log.info(`Server listening on ${fastify.server.address().port}`)
     } catch (err) {
         fastify.log.error(err);
         process.exit(1);

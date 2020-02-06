@@ -10,7 +10,7 @@ sed -i -r "s/\#(LoadModule.deflate.*\.so)/\1/g" conf/httpd.conf && \
 sed -i -r "s/\#(LoadModule.headers.*\.so)/\1/g" conf/httpd.conf && \
 sed -i -r "s/\#(LoadModule.slotmem.*\.so)/\1/g" conf/httpd.conf && \
 sed -i -r "s/\#(LoadModule.watchdog.*\.so)/\1/g" conf/httpd.conf && \
-echo "# Include chilquinta virtual host configuration" >> /usr/local/apache2/conf/httpd.conf && \
-echo "Include conf/extra/chilquinta.conf" >> /usr/local/apache2/conf/httpd.conf
+echo "# Include auth virtual host configuration" >> /usr/local/apache2/conf/httpd.conf && \
+echo "Include conf/extra/auth.conf" >> /usr/local/apache2/conf/httpd.conf
 
 CMD [ "/usr/local/bin/httpd-foreground" ]
